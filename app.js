@@ -44,7 +44,12 @@ async function getCoords() {
 	const pos = await new Promise((resolve, reject) => {
 		navigator.geolocation.getCurrentPosition(resolve, reject)
 	});
-	return [pos.coords.latitude, pos.coords.longitude]
+	console.log(pos.coords.latitude)
+	let tempLat = 37.779379
+	let tempLong = -122.418433
+
+	return [tempLat, tempLong]
+	// return [pos.coords.latitude, pos.coords.longitude]
 }
 
 // get foursquare businesses
