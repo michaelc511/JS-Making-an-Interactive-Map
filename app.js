@@ -1,4 +1,27 @@
+/*
+P1 Document
+
 // map object
+
+// get coordinates via geolocation api
+
+// get foursquare businesses
+
+// process foursquare array
+
+// event handlers
+// window load
+
+// business submit button
+
+
+
+	Map object - myMap
+		buildMap() - Function
+		addMarkers() - Function  
+
+*/
+// P2 map object
 const myMap = {
 	coordinates: [],
 	businesses: [],
@@ -7,16 +30,19 @@ const myMap = {
 
 	// build leaflet map
 	buildMap() {
+		// create map
 		this.map = L.map('map', {
 			center: this.coordinates,
 			zoom: 10,
 		});
+
 		// add openstreetmap tiles
 		L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 			attribution:
 				'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
 			minZoom: '15',
 		}).addTo(this.map)
+		
 		// create and add geolocation marker
 		const marker = L.marker(this.coordinates)
 		marker
@@ -39,6 +65,9 @@ const myMap = {
 	},
 }
 
+/*
+	P2 getCoords() - Function 
+*/
 // get coordinates via geolocation api
 async function getCoords() {
 	const pos = await new Promise((resolve, reject) => {
@@ -55,7 +84,11 @@ async function getCoords() {
 	// return [pos.coords.latitude, pos.coords.longitude]
 }
 
-// get foursquare businesses
+/*
+	getFourSquare () - Function 
+*/
+
+// P2 get foursquare businesses
 async function getFoursquare(business) {
 
 	const apiKey = 'fsq3Y3ke4l0wzO37KmBodosczZnNv3YKY/7wFeg2Ou6MxlE=';
@@ -79,7 +112,7 @@ async function getFoursquare(business) {
 	return businesses
 }
 
-// process foursquare array
+// P3 process foursquare array
 function processBusinesses(data) {
 	let businesses = data.map((element) => {
 		let location = {
@@ -96,12 +129,21 @@ function processBusinesses(data) {
 
 
 // event handlers
-// window load
+// P2  window load
+/*
+	1. get coords
+	2. set the coords to myMap object
+	3. myMap build map
+*/
 window.onload = async () => {
 	const coords = await getCoords()
 	myMap.coordinates = coords
 	myMap.buildMap()
 }
+
+/*
+	P2 handle submit button 
+*/
 
 // business submit button
 document.getElementById('submit').addEventListener('click', async (event) => {
