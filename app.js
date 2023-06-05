@@ -48,7 +48,10 @@ async function getCoords() {
 	let tempLat = 37.779379
 	let tempLong = -122.418433
 
+	// use this code to use SF as the address
 	return [tempLat, tempLong]
+
+	// Use this code to use your address
 	// return [pos.coords.latitude, pos.coords.longitude]
 }
 
@@ -75,26 +78,6 @@ async function getFoursquare(business) {
 	let businesses = parsedData.results
 	return businesses
 }
-
-// get foursquare businesses
-async function getFoursquareOrig(business) {
-	const options = {
-		method: 'GET',
-		headers: {
-			Accept: 'application/json',
-			Authorization: 'fsq3ATzZbmcGhdeFafr73wZcnJ+LlN6bK+4dh19a7ClS4u8='
-		}
-	}
-	let limit = 5
-	let lat = myMap.coordinates[0]
-	let lon = myMap.coordinates[1]
-	let response = await fetch(`https://cors-anywhere.herokuapp.com/https://api.foursquare.com/v3/places/search?&query=${business}&limit=${limit}&ll=${lat}%2C${lon}`, options)
-	let data = await response.text()
-	let parsedData = JSON.parse(data)
-	let businesses = parsedData.results
-	return businesses
-}
-
 
 // process foursquare array
 function processBusinesses(data) {
