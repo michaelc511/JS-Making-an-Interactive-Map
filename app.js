@@ -33,22 +33,43 @@ async function getCoords(){
 	const pos = await new Promise((resolve, reject) => {
 		navigator.geolocation.getCurrentPosition(resolve, reject)
 	});
-	return [pos.coords.latitude, pos.coords.longitude]
-}
+	console.log(pos.coords.latitude)
+	let tempLat = 37.779379
+	let tempLong = -122.418433
 
+	// use this code to use SF as the address
+	return [tempLat, tempLong]
+
+	// Use this code to use your address
+	// return [pos.coords.latitude, pos.coords.longitude]  
+}
 // get foursquare businesses
 
 // process foursquare array
 
 
-// event handlers
-// window load
-window.onload = async () => {
-	const coords = await getCoords()
+
+// Just run it 
+async function loadMap() {
+const coords = await getCoords()
 	console.log(coords)
 	myMap.coordinates = coords
 	myMap.buildMap()
 }
+
+loadMap(); 
+
+// event handlers
+// window load
+// use onload
+// window.onload = async () => {
+// 	async function loadMap() {
+// 		const coords = await getCoords()
+// 			console.log(coords)
+// 			myMap.coordinates = coords
+// 			myMap.buildMap()
+// 		}
+// 	}
 
 // business submit button
 document.getElementById('submit').addEventListener('click', async (event) => {
