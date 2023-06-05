@@ -1,13 +1,13 @@
-// map object
+// P2 map object
 
-// get coordinates via geolocation api
+// P2 get coordinates via geolocation api
 
-// get foursquare businesses
+// P3 get foursquare businesses
 
-// process foursquare array
+// P3 process foursquare array
 
-// event handlers
-// window load
+// P2 event handlers
+// P2 window load
 
-// business submit button
+// P2 business submit button
 
