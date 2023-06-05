@@ -135,12 +135,29 @@ function processBusinesses(data) {
 	2. set the coords to myMap object
 	3. myMap build map
 */
-window.onload = async () => {
+ 
+// Just run it 
+async function loadMap() {
 	const coords = await getCoords()
-	myMap.coordinates = coords
-	myMap.buildMap()
-}
-
+		console.log(coords)
+		myMap.coordinates = coords
+		myMap.buildMap()
+	}
+	
+	loadMap(); 
+	
+	// event handlers
+	// window load
+	// use onload
+	// window.onload = async () => {
+	// 	async function loadMap() {
+	// 		const coords = await getCoords()
+	// 			console.log(coords)
+	// 			myMap.coordinates = coords
+	// 			myMap.buildMap()
+	// 		}
+	// 	}
+	
 /*
 	P2 handle submit button 
 */
