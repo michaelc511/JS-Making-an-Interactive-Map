@@ -37,11 +37,11 @@ async function getCoords(){
 	let tempLat = 37.779379
 	let tempLong = -122.418433
 
-	// use this code to use SF as the address
-	return [tempLat, tempLong]
+	// // use this code to use SF as the address
+	 return [tempLat, tempLong]
 
 	// Use this code to use your address
-	// return [pos.coords.latitude, pos.coords.longitude]  
+	//return [pos.coords.latitude, pos.coords.longitude]  
 }
 // get foursquare businesses
 
@@ -51,7 +51,7 @@ async function getCoords(){
 
 // Just run it 
 async function loadMap() {
-const coords = await getCoords()
+	const coords = await getCoords()
 	console.log(coords)
 	myMap.coordinates = coords
 	myMap.buildMap()
